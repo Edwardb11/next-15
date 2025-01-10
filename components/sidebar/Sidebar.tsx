@@ -43,7 +43,7 @@ const Sidebar = () => {
 
         <button
           onClick={logout}
-          className="px-2 py-1 rounded hover:bg-teal-500 dark:hover:bg-teal-600 mt-20"
+          className="px-2 py-1 rounded hover:bg-teal-500 dark:hover:bg-teal-600 mt-12"
         >
           Cerrar sesión
         </button>
