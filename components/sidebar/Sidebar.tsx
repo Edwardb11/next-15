@@ -1,8 +1,8 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
+import { logout } from "@/utils/auth";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,28 +24,29 @@ const Sidebar = () => {
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 text-black dark:text-white p-4 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:static md:flex`}
+        } md:translate-x-0 md:static md:flex flex-col`}
       >
-        <nav className="flex flex-col space-y-2">
+        <nav className="flex flex-col space-y-2 flex-grow">
           <Link
-            href="/"
-            className="px-2 py-1 rounded hover:bg-teal-500 dark:hover:bg-teal-600"
-          >
-            Home
-          </Link>
-          <Link
-            href="/dashboard"
+            href="/dashboard/"
             className="px-2 py-1 rounded hover:bg-teal-500 dark:hover:bg-teal-600"
           >
             Dashboard
           </Link>
           <Link
-            href="/settings"
+            href="/dashboard/payment"
             className="px-2 py-1 rounded hover:bg-teal-500 dark:hover:bg-teal-600"
           >
-            Settings
+            Payment
           </Link>
         </nav>
+
+        <button
+          onClick={logout}
+          className="px-2 py-1 rounded hover:bg-teal-500 dark:hover:bg-teal-600 mt-20"
+        >
+          Cerrar sesión
+        </button>
       </div>
 
       {isOpen && (
