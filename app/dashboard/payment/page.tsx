@@ -1,7 +1,10 @@
+"use client"
+
+import Payment from "@/components/dashboard/payment/Payment"
 
 function page() {
   return (
-    <div>page</div>
+    <Payment />
   )
 }
 
