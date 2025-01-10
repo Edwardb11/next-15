@@ -11,7 +11,8 @@ const SignIn = () => {
     const { email, password } = data;
 
     if (email && password) {
-      router.push("/dashboard");
+      sessionStorage.setItem("user", JSON.stringify({ email })); 
+      router.push("/dashboard"); 
     } else {
       alert("Please fill out all fields.");
     }
