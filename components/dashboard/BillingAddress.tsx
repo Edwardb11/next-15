@@ -1,29 +1,17 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { billingAddressSchema } from "@/utils/payments";
+interface BillingAddressProps {
+    register: any
+    errors: any;
+    touchedFields: any;
+  }
 
-const BillingAddress: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(billingAddressSchema),
-    mode: "onBlur",
-  });
-
-  const onSubmit = (data: any) => {
-    console.log("Billing Address Data:", data);
-  };
+  const BillingAddress: React.FC<BillingAddressProps> = ({ register, errors, touchedFields }) => {
 
   return (
     <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
       <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-6">Billing Address</h2>
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-        {/* Nombre completo */}
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Full Name <span className="text-red-500">*</span>
@@ -162,13 +150,6 @@ const BillingAddress: React.FC = () => {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="px-6 py-3 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition"
-        >
-          Submit Billing Info
-        </button>
-      </form>
     </div>
   );
 };

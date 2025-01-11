@@ -1,29 +1,20 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { creditCardSchema } from "@/utils/payments";
 
-const CreditCardInfo: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, touchedFields },
-  } = useForm({
-    resolver: yupResolver(creditCardSchema),
-    mode: "onBlur", 
-  });
 
-  const onSubmit = (data: any) => {
-    console.log("Credit Card Data:", data);
-  };
+interface CreditCardInfoProps {
+    register: any
+    errors: any;
+    touchedFields: any;
+  }
+    const CreditCardInfo:  React.FC<CreditCardInfoProps> = ({ register, errors, touchedFields }) => {
+
+
 
   return (
     <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
       <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-6">Credit Card Info</h2>
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-        {/* Nombre en la tarjeta */}
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Name on Card <span className="text-red-500">*</span>
@@ -121,14 +112,6 @@ const CreditCardInfo: React.FC = () => {
             )}
           </div>
         </div>
-
-        <button
-          type="submit"
-          className="px-6 py-3 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition"
-        >
-          Submit Credit Card Info
-        </button>
-      </form>
     </div>
   );
 };
