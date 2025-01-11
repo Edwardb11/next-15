@@ -18,21 +18,21 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
     formState: { errors },
   } = useForm<SignInFormData>({
     resolver: yupResolver(signInSchema),
+    mode: "onBlur",
   });
 
   return (
     <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-           Email
+          Email
         </label>
         <input
           type="email"
           id="email"
           {...register("email")}
-          className={`bg-gray-50 border text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 ${
-            errors.email ? "border-red-500" : "border-gray-300"
-          }`}
+          className={`bg-gray-50 border text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 ${errors.email ? "border-red-500" : "border-gray-300"
+            }`}
           placeholder="name@company.com"
         />
         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -45,9 +45,8 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
           type="password"
           id="password"
           {...register("password")}
-          className={`bg-gray-50 border text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 ${
-            errors.password ? "border-red-500" : "border-gray-300"
-          }`}
+          className={`bg-gray-50 border text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 ${errors.password ? "border-red-500" : "border-gray-300"
+            }`}
           placeholder="••••••••"
         />
         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
