@@ -22,9 +22,9 @@ const Sidebar = () => {
       </button>
 
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 p-4 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-screen w-64 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 p-4 shadow-md flex flex-col transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:static md:flex flex-col shadow-md`}
+        } md:translate-x-0`}
       >
         <h2 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-4">Menu</h2>
         <nav className="flex flex-col space-y-4 flex-grow">
@@ -89,11 +89,11 @@ const Sidebar = () => {
             <span className="mr-3">⚙️</span> Settings
           </Link>
           <button
-          onClick={logout}
-          className="flex items-center px-4 py-2 text-sm font-medium rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+            onClick={logout}
+            className="flex items-center px-4 py-2 text-sm font-medium rounded hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-          Cerrar sesión
-        </button>
+            Cerrar sesión
+          </button>
         </nav>
 
         <div className="mt-auto flex items-center space-x-3 border-t pt-4 border-gray-200 dark:border-gray-700">
